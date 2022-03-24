@@ -4,10 +4,9 @@ def train(dl,model,lossf,opt,device='cuda'):
     model.train()
     for x,y in tqdm(dl):
         x,y = x.to(device),y.to(device)
+        opt.zero_grad()
         pre = model(x)
         loss = lossf(pre,y)
-
-        opt.zero_grad()
         loss.backward()
         opt.step()
 
