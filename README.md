@@ -5,8 +5,8 @@
 ⁕ Build up required environment first.
 
 ```
-python train.py -m vit
-python evaluate -i ./models/resnet.pt # evaluate the model on test set
+python train.py -m vit # --train ./split/train.txt --val ./split/val.txt
+python evaluate -i ./models/resnet.pt # evaluate the model on test set (default: ./split/test.txt)
 python predict.py -d ./split/test.txt -m ./models/vit_0.pt # can get predicted values
 ```
 
@@ -19,6 +19,12 @@ torch 1.9
 ```
 
 ## Dataset
+
+#### split the original data into train,validation, and test data.
+```bash
+python split.py --origin_data ./data/data.txt --split_folder ./split
+```
+
 x: [attr1:[...],attr2:[...]]
 e.g.,)   
 train label's distribution (bins = 20)
