@@ -35,7 +35,7 @@ processing: 2 seq. to 3 channel (attr1,attr2,attr2)(3x122x121)
 
 |    train   |validation        |   test |
 |------:|:-----------|--------:|
-|     8831| 7359| |
+|     8831| 7359| 7360|
 
 
 path: ./split/{train|val|test}.txt (※: there's no header)
