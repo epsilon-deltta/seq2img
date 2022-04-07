@@ -10,7 +10,8 @@ parser = argparse.ArgumentParser("Train datasets",epilog=exam_code)
 parser.add_argument('--device'   ,default=None,type=str     ,help='cpu | gpu')
 
 parser.add_argument('-m'  ,'--model'   ,default='vit' ,metavar='{...}'    ,help='model name')
-
+parser.add_argument('--train'   ,default='./split/train.txt', type=str, help='train dataset path')
+parser.add_argument('--val'   ,default='./split/val.txt' ,type=str, help='validation dataset path')
 
 parser.add_argument('--epoch'   ,default=100,type=int     ,help='total number of epochs')
 parser.add_argument('--batch_size'   ,default=4,type=int     ,help='batch size')
