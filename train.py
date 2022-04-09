@@ -10,6 +10,7 @@ def train(dl,model,lossf,opt,device='cuda'):
         loss.backward()
         opt.step()
 
+@torch.no_grad()
 def test(dl,model,lossf,epoch=None,exist_acc=True,device='cuda'):
     model.eval()
     size, acc , losses = len(dl.dataset) ,0,0
