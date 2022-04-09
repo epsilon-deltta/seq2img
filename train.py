@@ -39,13 +39,13 @@ def run(trdl,valdl,model,loss,opt,epoch=100,patience = 5,exist_acc=False,device=
         train(trdl,model,loss,opt,device=device)
         acc,val_loss = test(valdl,model,loss,epoch=i,exist_acc=exist_acc,device=device)
 
-
+        
         if min(val_losses.values() ) > val_loss:
-            val_losses[i] = val_loss
             best_model = copy.deepcopy(model)
+        val_losses[i] = val_loss
         if i == min(val_losses,key=val_losses.get)+patience:
             break
-    return best_model,val_losses
+    return best_model,list(val_losses.values())
 
 if __name__ == '__main__':
 
@@ -65,7 +65,7 @@ if __name__ == '__main__':
     # re-config (default arg < model-specific arg < user-specified arg)
     from utils import reconfig
     nargs = reconfig(model_args,parser)
-    print(nargs)
+    
 
     # training settings
     from utils import get_loss
