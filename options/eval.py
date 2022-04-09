@@ -8,7 +8,7 @@ parser = argparse.ArgumentParser("Train datasets",epilog=exam_code)
 
 parser.add_argument('--input','-i',type=str,help='model path')
 parser.add_argument('--num_workers'   ,default=4,type=int     ,help='')
-
+parser.add_argument('--test_data'   ,default='./split/test.txt',type=str     ,help='')
 
 # legacy
 parser.add_argument('--device'   ,default=None,type=str     ,help='cpu | gpu')

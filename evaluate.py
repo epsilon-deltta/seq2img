@@ -14,7 +14,7 @@ model = model.to(args.device)
 
 # dataloader
 from dataset import Seq2imgDataset
-tedt = Seq2imgDataset('./split/test.txt')
+tedt = Seq2imgDataset(args.test_data)
 tedl  = torch.utils.data.DataLoader(tedt, batch_size=args.num_workers, num_workers=args.num_workers)
 
 # evaluation metric
@@ -30,10 +30,14 @@ acc,val_loss = test(tedl,model,lossf=loss,exist_acc=False,device=args.device)
 test_perf = val_loss
 print(f'{nargs.loss}: {test_perf}')
 import os
-fname = os.path.splitext(args.input)[0]
-fname = os.path.basename(fname)
-fpath = os.path.join("results", fname)
+if args.filename == '':
+    fname = os.path.splitext(args.input)[0]
+    fname = os.path.basename(fname)
+    fpath = os.path.join("results", fname)
+    filename = f'{fpath}_evaluation.txt'
+else:
+    filename = args.filename
 
-with open(f'{fpath}_evaluation.txt','w') as f:
+with open(filename,'w') as f:
     f.write(str(test_perf))
-    print(f'the result is saved in {fpath}.txt ')
+    print(f'the result is saved in {filename}')
