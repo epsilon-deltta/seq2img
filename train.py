@@ -77,8 +77,8 @@ if __name__ == '__main__':
     
     from dataset import Seq2imgDataset
     
-    trdt = Seq2imgDataset('./split/train.txt')
-    valdt = Seq2imgDataset('./split/val.txt')
+    trdt  = Seq2imgDataset(nargs.train)#  './split/train.txt'
+    valdt = Seq2imgDataset(nargs.val) # './split/val.txt'
     # tedt  = ProteinDataset('./data/split/test.csv' ,transform=transform)
 
     trdl  = torch.utils.data.DataLoader(trdt, batch_size=nargs.batch_size, num_workers=nargs.num_workers)
