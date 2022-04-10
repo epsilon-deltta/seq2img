@@ -24,7 +24,7 @@ torch 1.9
 ```bash
 python split.py --origin_data ./data/data.txt --split_folder ./split
 ```
-Also, you can download split data in [here](https://www.dropbox.com/sh/0c3l0xv59kamnwr/AAC0GWkDkpx4jUFHEhH04wQza?dl=0)
+Also, you can download split data in [here](https://www.dropbox.com/sh/0c3l0xv59kamnwr/AAC0GWkDkpx4jUFHEhH04wQza?dl=0)  
 x: [attr1:[...],attr2:[...]]
 e.g.,)   
 train label's distribution (bins = 20)
